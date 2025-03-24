@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <script>
+        const student = {
+            name: "praju",
+            studentId: "S00441323",
+            age: 25,
+            course: "Computer Science",
+
+            description: function() {
+                return "Student's name is " + this.name + ". My student ID is " + this.studentId + ", My age " + this.age + " years old and  I am studying " + this.course + ".";
+            }
+        }
+
+        function display() {
+            document.getElementById("demo_div").innerHTML = student.description();
+        }
+    </script>
+</head>
+<body>
+   
+    <div id="demo_div">
+        <button onclick="display()">Show Student Information</button>
+    </div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <script>
+        function display() {
+            const name = document.getElementById("nameid").value;
+            const studentId = document.getElementById("studentid").value;
+            const age = document.getElementById("ageid").value;
+            const course = document.getElementById("courseid").value;
+
+            const student = {
+                name: name,
+                studentId: studentId,
+                age: age,
+                course: course,
+                description: function() {
+                    return "Student: " + this.name + ", Student ID: " + this.studentId + ", Age: " + this.age + ", Course: " + this.course + ".";
+                }
+            };
+
+            document.getElementById("demo_div").innerHTML = student.description();
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter Student Details</h2>
+    <input id="nameid" placeholder="Enter student name">
+    <input id="studentid" placeholder="Enter student ID">
+    <input id="ageid" placeholder="Enter student age">
+    <input id="courseid" placeholder="Enter student course">
+   
+    <div id="demo_div">
+        <button onclick="display()">Show Student Information</button>
+    </div>
+
+</body>
+</html>

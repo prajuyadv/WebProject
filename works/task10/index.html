@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Call Stack</title>
+    <style>
+        task-list {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        task-item {
+            padding: 5px;
+            margin-bottom: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script>
+        // Initialize an empty array as the call stack
+        let taskStack = [];
+        // Function to add a task to the stack
+        function addTask() {
+            const taskName = document.getElementById('taskName').value;
+            if (taskName.trim() === '') {
+                alert("Please enter a task name.");
+                return;
+            }
+            taskStack.push(taskName);
+            document.getElementById('taskName').value = '';
+            updateTaskPipeline(); // Update the displayed stack
+        }
+        // Function to undo the last task
+        function undoTask() {
+            if (taskStack.length === 0) {
+                alert("No tasks to undo.");
+                return;
+            }
+            taskStack.pop(); // Remove last task from the stack
+            updateTaskPipeline(); // Update the displayed stack
+        }
+        // Function to update the task pipeline display
+        function updateTaskPipeline() {
+            const taskListElement = document.getElementById('taskPipeline');
+            taskListElement.innerHTML = ''; // Clear the current list
+            // Add each task in the stack to the display
+            taskStack.forEach((task, index) => {
+                const taskItem = document.createElement('li');
+                taskItem.className = 'task-item';
+                taskItem.textContent = `${index + 1}. ${task}`; // Display task number and
+                name
+                taskListElement.appendChild(taskItem);
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Task Call Stack</h1>
+
+    <!-- Input to Add Task -->
+    <input type="text" id="taskName" placeholder="Enter Task Name" />
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="undoTask()">Undo Task</button>
+
+    <!-- Display Task Pipeline -->
+    <div class="task-list" id="taskList">
+        <p><strong>Process Line:</strong></p>
+        <ul id="taskPipeline">
+            <!-- Tasks will be listed here -->
+        </ul>
+    </div>
+
+    <script src=" script.js">
+
+    </script>
+</body>
+
+</html>

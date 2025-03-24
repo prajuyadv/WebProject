@@ -1,0 +1,53 @@
+<DOCTYPE html>
+    <html>
+    
+    <body>
+    
+        <h2>Update Information</h2>
+    
+        <input type="text" id="name" placeholder="Enter name">
+        <input type="number" id="age" placeholder="Enter age">
+        <input type="text" id="profession" placeholder="Enter profession">
+        <input type="text" id="hobby" placeholder="Enter hobby"><br><br>
+       
+        <button onclick="insertInfo()">Insert Info</button>
+        <button onclick="showInfo()">Show Info</button>
+    
+        <h3>Records:</h3>
+        <ul id="demo_div"></ul>
+    
+        <script>
+            let student = [];  
+    
+            function insertInfo() {
+                let person = {
+                    name: document.getElementById("name").value || "N/A",
+                    age: document.getElementById("age").value || "N/A",
+                    profession: document.getElementById("profession").value || "N/A",
+                    hobby: document.getElementById("hobby").value || "N/A"
+                };
+    
+                student.push(person);
+                alert("Information added successfully!");
+               
+             
+                document.getElementById("name").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("profession").value = "";
+                document.getElementById("hobby").value = "";
+            }
+    
+            function showInfo() {
+                let output = "";
+                student.forEach((person, index) => {
+                    output += `<li><strong>Record ${index + 1}:</strong> ${person.name}, Age: ${person.age}, Profession: ${person.profession}, Hobby: ${person.hobby}</li>`;
+                });
+    
+                document.getElementById("demo_div").innerHTML = output || "<li>No records found.</li>";
+            }
+        </script>
+    
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        input,
+        output {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        output {
+            font-weight: bold;
+            background-color: #e9e9e9;
+            color: #333;
+            text-align: center;
+        }
+
+        input:focus,
+        output:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+    <script>
+        // Function to convert input text to uppercase and display it in the output field
+        function convertToUpper() {
+            // Get the value of the input field
+            let inputText = document.getElementById('inputField').value;
+            // Convert the input text to uppercase
+            let upperCaseText = inputText.toUpperCase();
+            // Set the output field to the uppercase version of the input text
+            document.getElementById('outputField').innerText = upperCaseText;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <label for="inputField">Type here:</label>
+        <input type="text" id="inputField" placeholder="Enter text here" oninput="convertToUpper()">
+
+        <label for="outputField">Uppercase Output:</label>
+        <output id="outputField"></output>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.js">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Update Information</h2>
+
+        <input type="text" id="name" placeholder="Enter name">
+        <input type="number" id="age" placeholder="Enter age"><br>
+        <input type="text" id="profession" placeholder="Enter profession">
+        <input type="text" id="hobby" placeholder="Enter hobby"><br><br>
+
+        <button class="btn-green" onclick="insertInfo()">Insert Info</button>
+        <button class="btn-red" onclick="resetForm()">Clear Inputs</button>
+        <button class="btn-blue" onclick="showInfo()">Show All</button>
+        <button class="btn-orange" onclick="clearDisplay()">Clear Display</button>
+
+        <h3>Search Records:</h3>
+        <input type="text" id="searchQuery" placeholder="Search by Name or Age">
+        <button class="btn-green" onclick="searchInfo()">Search</button>
+        <button class="btn-red" onclick="clearSearch()">Clear Search</button>
+
+        <h3>All Records:</h3>
+        <ul id="demo_div"></ul>
+
+        <h3>Search Results:</h3>
+        <ul id="searchResults"></ul>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+
+</body>
+
+</html>

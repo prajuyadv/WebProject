@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript class</title>
+        <script>
+            function calculate_age() {
+                // Get the current date
+                const date = new Date();
+                
+                // Get current year
+                let current_year = date.getFullYear();
+                
+                // Get the date of birth input
+                let dob = new Date(document.getElementById("dob_input").value);
+                
+                // Get the year of birth
+                let dob_year = dob.getFullYear();
+                
+                // Calculate the age
+                let age = current_year - dob_year;
+                
+                // Display the result
+                document.getElementById("output_div").innerHTML = "You are " + age + " year(s) old!";
+            }
+        </script>
+    </head>
+    <body>
+        <input type="date" id="dob_input" onchange="calculate_age();" placeholder="Enter your date of birth"/>
+        <div id="output_div"></div>
+    </body>
+</html>
