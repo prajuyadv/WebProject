@@ -1,77 +1,61 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tailwind Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-<html>
-    <head>
-        <style>
-            input{
-                width: 300px;
-                font-size: 20px;
-            }
-            button{
-                width: 230px;
-                font-size: 20px;
-            }
-            .button_div{
-                margin-top: 10px;
-            }
-            #container{
-                padding: 10px;
-                margin: 10px;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div id="container">
-            <div class="input_div">
-                <input placeholder="Enter the value of X" id="num1"/>
-                <input placeholder="Enter the value of Y" id="num2"/>
-                <input placeholder="Result will appear here" id="res" disabled/>
-            </div>
-
-            <div class="button_div">
-                <button onclick="add()">Addition (X + Y)</button>
-                <button onclick="subtract()">Subtraction (X - Y)</button>
-                <button onclick="multiply()">Multiplication (X * Y)</button>
-                <button onclick="divide()">Division (X / Y)</button>
-            </div>            
+    <div id="container" class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+        <div class="space-y-4">
+            <input id="num1" type="number" placeholder="Enter the value of X" 
+                   class="w-full px-4 py-2 border border-gray-300 rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <input id="num2" type="number" placeholder="Enter the value of Y" 
+                   class="w-full px-4 py-2 border border-gray-300 rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <input id="res" type="text" placeholder="Result will appear here" disabled 
+                   class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-md text-lg text-gray-600" />
         </div>
 
-        <script>
-            let x, y, z;
+        <div class="mt-6 grid grid-cols-2 gap-4">
+            <button onclick="add()" class="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Addition (X + Y)</button>
+            <button onclick="subtract()" class="bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Subtraction (X - Y)</button>
+            <button onclick="multiply()" class="bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">Multiplication (X * Y)</button>
+            <button onclick="divide()" class="bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">Division (X / Y)</button>
+        </div>
+    </div>
 
-            function add() {
-                x = parseInt(document.getElementById("num1").value);
-                y = parseInt(document.getElementById("num2").value);
-                z = x + y;
-                document.getElementById("res").value = z;
-            }
+    <script>
+        let x, y, z;
 
-            function subtract() {
-                x = parseInt(document.getElementById("num1").value);
-                y = parseInt(document.getElementById("num2").value);
-                z = x - y;
-                document.getElementById("res").value = z;
-            }
+        function add() {
+            x = parseFloat(document.getElementById("num1").value);
+            y = parseFloat(document.getElementById("num2").value);
+            z = x + y;
+            document.getElementById("res").value = z;
+        }
 
-            function multiply() {
-                x = parseInt(document.getElementById("num1").value);
-                y = parseInt(document.getElementById("num2").value);
-                z = x * y;
-                document.getElementById("res").value = z;
-            }
+        function subtract() {
+            x = parseFloat(document.getElementById("num1").value);
+            y = parseFloat(document.getElementById("num2").value);
+            z = x - y;
+            document.getElementById("res").value = z;
+        }
 
-            function divide() {
-                x = parseInt(document.getElementById("num1").value);
-                y = parseInt(document.getElementById("num2").value);
-                if (y !== 0) {
-                    z = x / y;
-                } else {
-                    z = "Cannot divide by zero";
-                }
-                document.getElementById("res").value = z;
-            }
-        </script>
-    </body>
+        function multiply() {
+            x = parseFloat(document.getElementById("num1").value);
+            y = parseFloat(document.getElementById("num2").value);
+            z = x * y;
+            document.getElementById("res").value = z;
+        }
+
+        function divide() {
+            x = parseFloat(document.getElementById("num1").value);
+            y = parseFloat(document.getElementById("num2").value);
+            z = y !== 0 ? (x / y) : "Cannot divide by zero";
+            document.getElementById("res").value = z;
+        }
+    </script>
+
+</body>
 </html>
-
